@@ -1,36 +1,49 @@
 # Neovim Configuration Guide
+
+Todo:
+
+- [ ] **update this documentation keybindings.**
+
 _This is a **starter configuration** for Neovim, featuring a curated selection of the most useful plugins for **Python** and **Rust** development.
 It's designed to be lightweight and easy to customize, providing a strong foundation for both beginners and experienced developers. Feel free to tweak or extend it to suit your workflow._
+
+![main environment](./images/main.png)
+
+![rust coding](./images/coding.png)
 
 _A basic set of key mappings is included and located in `lua/keymaps.lua`. You can review and customize these mappings to align with your personal preferences._
 
 ## Prerequisites
+
 Before proceeding, ensure you meet the following requirements:
 
-Neovim Version: `NVIM v0.10.2`  
-Operating System: `Rocky Linux 9.4`, `PopOS 22.04`  
+Neovim Version: `v0.10.2 - v0.10.4`  
+Operating System: `Rocky Linux 9.4`, `PopOS 22.04`, `Debian 12.9`
 
+Notes for `Mac` and `Windows` Users
 
-
-Notes for `Mac` and `Windows` Users  
-
-__Mac Users:__ If you're struggling to optimize your workflow, don’t worry—you have plenty of money to waste. Just buy a newer Mac instead!  
-__Windows Users:__ Before searching for a real IDE, you might want to get yourself a real operating system.  
+**Mac Users:** If you're struggling to optimize your workflow, don’t worry—you have plenty of money to waste. Just buy a newer Mac instead!  
+**Windows Users:** Before searching for a real IDE, you might want to get yourself a real operating system.
 
 ## Dependencies:
+
 Ensure the following dependencies are installed for a seamless experience:
-- **Ripgrep** (for Telescope):  
+
+- **Ripgrep** (for Telescope):
+
   ```bash
   sudo dnf install ripgrep
   ```
 
 - **Python venv** (for Python-based plugins):  
-  Replace `<minor>` with your Python minor version:  
+  Replace `<minor>` with your Python minor version:
+
   ```bash
   sudo dnf install python3.<minor>-venv
   ```
 
-- **Clipboard provider** (e.g., xclip):  
+- **Clipboard provider** (e.g., xclip):
+
   ```bash
   sudo dnf install xclip
   ```
@@ -38,25 +51,33 @@ Ensure the following dependencies are installed for a seamless experience:
 - **Node.js & npm** (for LSP support via `nvm`):  
   [Install nvm from GitHub](https://github.com/nvm-sh/nvm).
 
+- **Prettier** (for yaml,js,... formatting)
+ ```bash
+ npm install -g prettier
+ ``` 
+
 ## Useful Commands
 
 - **Check Telescope health:**  
-  In Neovim:  
+  In Neovim:
+
   ```vim
   :checkhealth telescope
   ```
 
-- **Save without formatting:**  
+- **Save without formatting:**
+
   ```vim
   :noautocmd write
   ```
 
-- **Install formatters, debuggers, etc. (via Mason):**  
+- **Install formatters, debuggers, etc. (via Mason):**
   ```vim
   :Mason
   ```
 
-## How to install: 
+## How to install:
+
 ```bash
 $ cd ~/.config/nvim
 $ git clone git@github.com:pykeras/neovim.git .
@@ -72,7 +93,7 @@ The leader key is mapped to the spacebar (<Space>).
 
 ### General
 
-- **Which Key (Help Menu):** Press `<leader>` to see available shortcuts.  
+- **Which Key (Help Menu):** Press `<leader>` to see available shortcuts.
 - **Copy to clipboard:** `<leader>y`
 - **Paste from clipboard:** `<leader>p`
 - **Easier switching between splits:**
@@ -85,18 +106,22 @@ The leader key is mapped to the spacebar (<Space>).
 ---
 
 ### Virtual Environment Selector (Python)
-_By default if you have `.venv`  in project directory this setup will use that otherwise:_
+
+_By default if you have `.venv` in project directory this setup will use that otherwise:_
+
 - **Open selector**: `<leader>vs`
 - **Select cached one**: `<leader>vc`
 
 ---
 
-### Debugging (Rust)
-_Rust only_
+### Debugging
+
+_For python make sure you run `pip install debugpy` in the virtualenv detected/selected._
+
 - **Step into:** `<F2>`
 - **Step over:** `<F3>`
 - **Step out:** `<F4>`
-- **Continue debugging:** `<F5>`
+- **Continue/Start debugging:** `<F5>`
 - **Toggle breakpoint:** `<Leader>b`
 - **Set conditional breakpoint:** `<F6>`
 - **Terminate debugger:** `<F7>`
@@ -127,7 +152,7 @@ _Rust only_
 
 - **Show documentation:** `K`
 - **Go to definition:** `gd`
-- **Go to definition (vertical split):** `<leader>gdv` 
+- **Go to definition (vertical split):** `<leader>gdv`
 - **Go to definition (horizontal split):** `<leader>gds`
 - **Peek definition:** `<leader>gdp`
 - **Close all splits except current:** `<leader>qo`
@@ -147,7 +172,7 @@ _Rust only_
 
 - **Select buffer:** `<leader>bs`
 - **Cycle next buffer:** `<Tab>`
-- **Cycle previous buffer:** `<Tab>p`
+- **Cycle previous buffer:** `<S-Tab>`
 - **Move buffer left:** `<leader>bl`
 - **Move buffer right:** `<leader>br`
 - **Close buffer:** `<leader>bx`
@@ -251,4 +276,3 @@ _Rust only_
 - Rename `~/.config/nvim/lua/plugins/avante` to `avante.lua` for `Ollama`.
 
 ---
-

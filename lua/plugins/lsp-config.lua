@@ -9,7 +9,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "ruff" },
+                ensure_installed = { "lua_ls", "pyright", "ruff", "clangd" },
             })
         end,
     },
@@ -19,7 +19,9 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local lspconfig = require("lspconfig")
-
+		
+	        lspconfig.clangd.setup({})
+	    
             lspconfig.lua_ls.setup({
                 on_attach = function(client, bufnr)
                     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
